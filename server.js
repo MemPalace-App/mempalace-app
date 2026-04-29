@@ -190,8 +190,6 @@ app.post("/api/save", upload.array("images"), (req, res) => {
   }
 });
 
-
-
 // get image
 app.get("/api/getImage/:file", (req,res)=>{
   try {

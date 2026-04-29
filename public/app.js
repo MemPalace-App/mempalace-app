@@ -149,7 +149,6 @@ async function openDrawer(id) {
   }
 }
 
-
 // Reference the Create / Edit button
 const createEditBtn = document.getElementById("createEditBtn");
 
@@ -211,6 +210,7 @@ createEditBtn.addEventListener("click", () => {
   // Clear new upload preview
   thumbnailPreview.innerHTML = "";
 });
+
 // Save (create or update)
 saveBtn.addEventListener("click", async (e) => {
   e.preventDefault();

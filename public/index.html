@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MemPalace Console · W/R/C/D</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- LANDING HEADER -->
+<section class="feature-panel mempalace-landing">
+  <header class="feature-head">
+    <h1 class="display">Memory is identity.</h1>
+  </header>
+  <div class="feature-body slab">
+    <p>Every conversation, every idea, every small decision… held somewhere safe.</p>
+    <p>Welcome to the future of memory: <strong>MemPalace</strong>.</p>
+  </div>
+</section>
+
+<!-- W/R/C/D SECTIONS -->
+<section class="feature-panel">
+  <header class="feature-head"><h2 class="display">W - Wing</h2></header>
+  <div class="feature-body slab">
+    <h3>The Wings</h3>
+    <p>people · projects · topics</p>
+    <p>A broad region of the palace, keyed to a real entity - a person by name, a project by codename, a domain of your life.</p>
+  </div>
+</section>
+<section class="feature-panel">
+  <header class="feature-head"><h2 class="display">R - Room</h2></header>
+  <div class="feature-body slab">
+    <h3>The Rooms</h3>
+    <p>days · sessions · threads</p>
+    <p>Inside a wing sit rooms - discrete units of time. Walk the corridor and the palace unfolds chronologically, room by room.</p>
+  </div>
+</section>
+<section class="feature-panel">
+  <header class="feature-head"><h2 class="display">C - Closet</h2></header>
+  <div class="feature-body slab">
+    <h3>The Closets</h3>
+    <p>topics · threads · bundles</p>
+    <p>Inside a room, closets group related drawers by topic or thread. Open one closet and you see every drawer on that subject together.</p>
+  </div>
+</section>
+<section class="feature-panel">
+  <header class="feature-head"><h2 class="display">D - Drawer</h2></header>
+  <div class="feature-body slab">
+    <h3>The Drawers</h3>
+    <p>verbatim · permanent · exact</p>
+    <p>Each room holds drawers. A drawer is a single chunk of verbatim content - the exact words, untouched.</p>
+  </div>
+</section>
+
+<!-- CONSOLE LOG PANEL -->
+<section class="feature-panel" id="console-section">
+  <header class="feature-head"><h2 class="display">Console Log</h2></header>
+  <div class="feature-body">
+    <div class="chat" id="consoleLog">
+      <div class="msg system"><span class="who">mem</span>
+        <span class="body">ready. fill the fields and press <strong>Save</strong>, or click a drawer on the right.</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- UNIFIED MEMPALACE PANEL -->
+<section class="feature-panel" id="mempanel-section">
+  <header class="feature-head">
+    <h2 class="display">MEMPALACE</h2>
+    <!-- Toggle button -->
+    <button type="button" id="createEditBtn">Create / Edit a Drawer</button>
+  </header>
+  <div class="feature-body">
+    <form id="memoryForm" class="mem-form">
+      <div class="form-row"><label>Wing</label><div id="wingInput" class="editable" contenteditable="true" data-placeholder="e.g. Style - Sci-Fi Cowboy"></div></div>
+      <div class="form-row"><label>Room (date)</label><div id="roomInput" class="editable" contenteditable="true" data-placeholder="YYYY-MM-DD"></div></div>
+      <div class="form-row"><label>Closet</label><div id="closetInput" class="editable" contenteditable="true" data-placeholder="e.g. Prompt Set A"></div></div>
+      <div class="form-row"><label>Name</label><div id="nameInput" class="editable" contenteditable="true" data-placeholder="Memory name"></div></div>
+      <div class="form-row"><label>Tags</label><div id="tagsInput" class="editable" contenteditable="true" data-placeholder="comma,separated,tags"></div></div>
+      <div class="form-row"><label>File (optional)</label><input type="file" id="fileInput" accept=".txt,.md,.json,.log,.csv,.js,.py,.html,.css"></div>
+      <div class="form-row"><label>Text</label><pre id="textInput" class="editable" contenteditable="true" data-placeholder="Any text, any length - 1000+ lines is fine."></pre></div>
+      <div class="form-row"><label>Images (optional)</label><input type="file" id="imageInput" accept="image/*" multiple></div>
+      <div class="form-row"><label>Selected Images</label><div id="thumbnailPreview" class="thumbs"></div></div>
+      <div class="form-row"><label>Current Images</label><div id="editImages"></div></div>
+      <div class="form-actions">
+        <button type="submit" id="saveBtn">Save</button>
+        <button type="button" id="clearBtn">Clear</button>
+        <button type="button" id="deleteBtn" class="danger">Delete</button>
+      </div>
+      <input type="hidden" id="currentId">
+    </form>
+  </div>
+</section>
+
+
+<!-- SEARCH PANEL -->
+<section class="feature-panel" id="search-section">
+  <header class="feature-head"><h2 class="display">Search & List</h2></header>
+  <div class="feature-body">
+    <div class="search-row">
+      <div id="searchInput" class="editable" contenteditable="true" data-placeholder="Search by name, tags, wing, closet, filename, text…"></div>
+      <button type="button" id="searchBtn">Search</button>
+      <button type="button" id="refreshBtn">All</button>
+    </div>
+    <div class="mem-list" id="memoryList"></div>
+  </div>
+</section>
+
+<!-- IMAGE OVERLAY CAROUSEL -->
+<div id="imageOverlay" class="overlay">
+  <span class="close" id="overlayClose">&times;</span>
+  <div class="overlay-content">
+    <button class="nav prev" id="overlayPrev">&#10094;</button>
+    <img id="overlayImage" src="" alt="full view">
+    <button class="nav next" id="overlayNext">&#10095;</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
